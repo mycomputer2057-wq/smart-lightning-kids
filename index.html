@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- اسم تبويب المتصفح الجديد للعبة -->
+    <title>Smart Typer ⚡</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* كود تنسيق إضافي لضبط اتجاه واجهة إدخال العمر واللوحات للغة العربية */
+        .rtl-box { direction: rtl; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <div class="game-container">
+        <!-- العنوان الرئيسي المحدث والمحبب للأطفال -->
+        <h1>Smart Typer ⚡🧠</h1>
+        <p class="description" id="ai-status">AI is ready to analyze the player's level!</p>
+        
+        <!-- واجهة إدخال عمر الطفل لتحديد المستوى ذكياً -->
+        <div class="age-selection-box rtl-box" id="age-box">
+            <h3>مرحباً بك! كم عمر البطل الصغير؟ 👦👧</h3>
+            <div class="age-buttons">
+                <button class="age-btn" onclick="initAIByAge(4)">4 - 5 سنوات 🟢</button>
+                <button class="age-btn" onclick="initAIByAge(6)">6 - 7 سنوات 🟡</button>
+                <button class="age-btn" onclick="initAIByAge(8)">8+ سنوات 🔴</button>
+            </div>
+        </div>
+
+        <!-- أزرار القائمة الرئيسية الإنجليزية بعد تحديد العمر -->
+        <div class="difficulty-box" id="difficulty-selection" style="display: none;">
+            <button class="diff-btn exam-mode" onclick="startAIExamMode()">🔥 Start AI Exam Mode 🔥</button>
+            <button class="diff-btn letters-en" onclick="setDifficulty('letters_en')">🔤 Alphabet Practice</button>
+            <button class="diff-btn easy" id="btn-easy" onclick="setDifficulty('easy')">Level 1: Easy Words 🟢</button>
+            <button class="diff-btn medium locked" id="btn-medium" onclick="setDifficulty('medium')" disabled>Level 2: Medium Words 🔒</button>
+            <button class="diff-btn hard locked" id="btn-hard" onclick="setDifficulty('hard')" disabled>Level 3: Hard Words 🔒</button>
+        </div>
+
+        <!-- صندوق اللعبة الرئيسي -->
+        <div id="game-playground" style="display: none;">
+            <!-- لوحة تنبيهات ذكاء اصطناعي فورية ومساعدة للطفل عند كتابة إجابة خاطئة -->
+            <div id="ai-feedback" class="ai-hint-box" style="display: none;"></div>
+
+            <!-- صندوق الشعار المخصص للبرق الذكي بدلاً من الإيموجي الافتراضي -->
+            <div class="image-container" style="background: transparent; box-shadow: none; margin-bottom: 20px;">
+                <img id="word-image" src="logo.png" alt="Smart Typer Logo" style="width: 150px; height: 150px; object-fit: contain; animation: bounce 2s infinite alternate;">
+            </div>
+
+            <!-- زر مخصص لإعادة سماع الصوت للطفل -->
+            <div class="audio-repeat-box">
+                <button onclick="speakWord()" class="speaker-btn">🔊 Listen Again</button>
+            </div>
+
+            <!-- مكان عرض الكلمة المراد كتابتها -->
+            <div class="word-display" id="word">Ready...</div>
+            
+            <!-- حقل الإدخال المراقب والمفعل بزر Enter -->
+            <input type="text" id="input-field" placeholder="Type here and press Enter..." autocomplete="off" disabled>
+            
+            <div class="stats">
+                <div>Time: <span id="time">60</span>s</div>
+                <div>Score: <span id="score">0</span> 🌟</div>
+            </div>
+        </div>
+
+        <!-- زر بدء التحدي بعد اختيار مستوى الصعوبة -->
+        <button id="start-btn" style="display: none;">Start Game 🎉</button>
+
+        <!-- لوحة شرف الأبطال الثابتة بأسفل الصفحة مقسمة حسب المستويات الإنجليزية فقط ومعدلة للاتجاه العربي -->
+        <div class="leaderboard-card rtl-box">
+            <div class="leaderboard-header">🏆 لوحة شرف الأبطال الثابتة 🏆</div>
+            <div class="leaderboard-grid">
+                <div class="leaderboard-item easy-rank">🟢 سهل: <span id="rank-easy">لا يوجد بطل 🌟</span></div>
+                <div class="leaderboard-item medium-rank">🟡 متوسط: <span id="rank-medium">لا يوجد بطل 🌟</span></div>
+                <div class="leaderboard-item hard-rank">🔴 صعب: <span id="rank-hard">لا يوجد بطل 🌟</span></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

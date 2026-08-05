@@ -1,0 +1,97 @@
+body {
+    background: radial-gradient(circle, #1a1635 0%, #0a0618 100%);
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.game-container {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+    width: 100%;
+    max-width: 500px;
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+    color: #ffde59;
+    text-shadow: 0 0 10px rgba(255, 222, 89, 0.3);
+}
+
+.description {
+    color: #9cdcfe;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* صندوق اختيار العمر */
+.age-selection-box h3 { margin-bottom: 15px; color: #ff914d; }
+.age-buttons { display: flex; flex-direction: column; gap: 10px; }
+.age-btn { padding: 12px; font-size: 1.1rem; font-weight: bold; border: none; border-radius: 12px; cursor: pointer; background: #3b82f6; color: white; transition: 0.2s; }
+.age-btn:hover { background: #2563eb; transform: scale(1.02); }
+
+.difficulty-box { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+.diff-btn { padding: 12px; font-size: 1.05rem; font-weight: bold; border: none; border-radius: 15px; cursor: pointer; transition: 0.2s; color: #110929; }
+.diff-btn:hover:not(:disabled) { transform: scale(1.02); }
+
+.letters-en { background: #a855f7; color: white; }
+.easy { background: #00ff87; }
+.medium { background: #ffde59; }
+.hard { background: #ff4a4a; color: white; }
+.exam-mode { background: linear-gradient(45deg, #ff4e50, #f9d423); color: #110929; font-size: 1.2rem; box-shadow: 0 0 15px rgba(255, 78, 80, 0.4); }
+
+.locked { background: #4b5563 !important; color: #9ca3af !important; cursor: not-allowed !important; opacity: 0.5; }
+
+/* صندوق تلميحات الذكاء الاصطناعي الفوري */
+.ai-hint-box {
+    background: rgba(239, 68, 68, 0.2);
+    border: 1px solid #ef4444;
+    color: #fca5a5;
+    padding: 10px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.image-container { background: rgba(255, 255, 255, 0.9); padding: 10px; border-radius: 20px; display: inline-block; margin-bottom: 10px; }
+#word-emoji { font-size: 80px; display: block; animation: bounce 2s infinite alternate; }
+
+@keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-8px); } }
+
+.speaker-btn { background: #ff914d; color: #110929; border: none; padding: 8px 15px; border-radius: 20px; font-weight: bold; cursor: pointer; margin-bottom: 15px; }
+.word-display { font-size: 2.8rem; font-weight: bold; margin-bottom: 20px; color: #00ffc4; }
+
+input { width: 100%; padding: 15px; font-size: 1.4rem; border: 3px solid rgba(255, 255, 255, 0.3); border-radius: 20px; background: rgba(0, 0, 0, 0.4); color: #fff; text-align: center; box-sizing: border-box; transition: all 0.3s ease; }
+
+.stats { display: flex; justify-content: space-between; margin-top: 25px; font-size: 1.2rem; color: #00ff87; font-weight: bold; }
+#start-btn { margin-top: 20px; padding: 15px 40px; font-size: 1.3rem; font-weight: bold; border: none; border-radius: 50px; background: linear-gradient(45deg, #ff914d, #ffde59); color: #110929; cursor: pointer; }
+
+.leaderboard-card { margin-top: 25px; padding: 15px; background: rgba(15, 10, 30, 0.6); border-radius: 20px; border: 1px solid rgba(255, 222, 89, 0.2); }
+.leaderboard-header { color: #ffde59; font-size: 1.1rem; font-weight: bold; margin-bottom: 10px; }
+.leaderboard-grid { display: grid; grid-template-columns: 1fr; gap: 8px; text-align: right; }
+.leaderboard-item { background: rgba(255, 255, 255, 0.04); padding: 8px; border-radius: 10px; font-size: 0.9rem; border-right: 4px solid #fff; }
+.easy-rank { border-right-color: #00ff87; }
+.medium-rank { border-right-color: #ffde59; }
+.hard-rank { border-right-color: #ff4a4a; }
+.leaderboard-item span { color: #00ffc4; font-weight: bold; display: block; }
